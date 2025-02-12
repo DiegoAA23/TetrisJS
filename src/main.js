@@ -59,3 +59,17 @@ const PIECES = [
     [1, 1]
   ]
 ]
+
+function removeRows() {
+  const rowsToRemove = board.reduce((acc, row, y) => {
+    if (row.every(value => value === 1)) {
+      acc.push(y)
+    }
+    return acc
+  }, [])
+
+  rowsToRemove.forEach(y => {
+    board.splice(y, 1)
+    board.unshift(new Array(BOARD_WIDTH).fill(0))
+  })
+}
