@@ -107,6 +107,44 @@ function draw() {
   })
 }
 
+document.addEventListener('keydown', event => {
+  if (event.key === 'ArrowLeft') {
+    piece.position.x--
+    if (checkCollision()) {
+      piece.position.x++
+    }
+  }
+  if (event.key === 'ArrowRight') {
+    piece.position.x++
+    if (checkCollision()) {
+      piece.position.x--
+    }
+  }
+  if (event.key === 'ArrowDown') {
+    piece.position.y++
+    if (checkCollision()) {
+      piece.position.y--
+      solidifyPiece()
+      removeRows()
+    }
+  }
+  if (event.key === 'ArrowUp') {
+    const rotated = piece.shape[0].map((_, i) =>
+      piece.shape.map(row => row[i]).reverse()
+    )
+    const oldX = piece.position.x
+    piece.shape = rotated
+    while (checkCollision()) {
+      piece.position.x--
+      if (piece.position.x < 0) {
+        piece.position.x = oldX
+        piece.shape = rotated.map(row => row.reverse())
+        break
+      }
+    }
+  }
+})
+
 function checkCollision() {
   return piece.shape.some((row, y) => {
     return row.some((value, x) => {
