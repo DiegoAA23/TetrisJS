@@ -1,5 +1,7 @@
 ## TetrisJS
-Hecho con vanilla JavaScript. Incluye manejo de colisiones, posiciones, rotación de piezas y variaciones.
+Hecho con vanilla JavaScript.
+
+Incluye manejo de colisiones, posiciones, rotación de piezas y variaciones.
 
 Simplemente ejecutar:
 
