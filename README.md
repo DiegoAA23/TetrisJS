@@ -12,4 +12,4 @@ Arrow Down => Bajar pieza
 
 Arrow Left/Right => Mover eje en x
 
-Tiempo de descenso por defecto: 1 segundo.
+Tiempo de descenso de las piezas por defecto: 1 segundo.
